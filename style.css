@@ -1,0 +1,87 @@
+/* Estilo para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Estilo para el encabezado */
+h1 {
+    background-color: #1d251f;
+    color: #fff;
+    padding: 20px;
+}
+
+#resultado {
+    background-color: #d87626;
+    color: #fff;
+    margin: 20px 400px;
+    float:center; 
+    
+}
+
+#encabezado{
+    background-color: #080808;
+    padding: 20px;      
+}
+
+/* Estilo para el formulario */
+form {
+    background-color: #eeeaea;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para etiquetas */
+label {
+    display: block;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+/* Estilo para campos de lista desplegable */
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo para el botón */
+input[type="submit"] {
+    background-color: #1baa57;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.6s;
+}
+
+input[type="submit"]:hover {
+    background-color: #2c5a44;
+}
+
+.resultado-estilo {
+    float: center;
+    background-color: #000000;
+    padding: 0px;
+    margin: 40px 100px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #41eb32;
+    border-radius: 10px;
+  }
+
+  a {
+    color: #25d366; /* Color WhatsApp */
+    font-size: 50px;
+  }
+

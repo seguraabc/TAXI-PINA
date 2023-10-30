@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TAXIS DE PINAMAR</title>
+  <link rel="icon" type="image/x-icon" href="images/LOGO-ico.ico">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script>
+    gapi.load('client:auth2', initClient);
+
+    function initClient() {
+      gapi.client.init({
+        apiKey: 'AIzaSyAm9LrkJqLyy3N4VSOtKyne6vqHnT_1yGI',
+        clientId: '945030943229-anhduag4lpmn0r5f62rf217pe2foure3.apps.googleusercontent.com',
+        discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
+        scope: 'https://www.googleapis.com/auth/spreadsheets',
+      }).then(function(submitForm) {
+        // La aplicación está autorizada y lista para usar la API de Google Sheets.
+      });
+    }
+
+    function submitForm() {
+  // Obtiene los valores seleccionados de las listas desplegables
+  const selectColumna = document.getElementById('dato1');
+  const selectFila = document.getElementById('dato2');
+  const dato1 = selectColumna.options[selectColumna.selectedIndex].getAttribute('data-enviar');
+  const dato2 = selectFila.options[selectFila.selectedIndex].getAttribute('data-enviar');
+
+  // Concatena los valores de dato1 y dato2 para formar el rango de celda
+  const rango = dato1 + dato2;
+
+  gapi.client.sheets.spreadsheets.values.get({
+    spreadsheetId: '19l3z8DvN-voHvnVHFuqyRk56LirKf4xuG88FKbh3rfI',
+    range: 'Hoja 1!' + rango, // Forma el rango de celda
+  }).then(function(response) {
+    const value = response.result.values[0][0]; // Obtiene el valor de la celda
+    displayResult(value);
+  });
+}
+
+function displayResult(result) {
+  const resultadoContainer = document.getElementById('resultado-container');
+
+  if (result) {
+    resultadoContainer.innerHTML = 'PRECIO: $' + result;
+  } else {
+    resultadoContainer.innerHTML = 'No se encontraron datos en la celda especificada.';
+  }
+}
+ 
+
+  </script>
+</head>
+<body>
+  <img src="images/LOGO.bmp" alt="logo" width="200px" height="200px">
+  <form id="miFormulario" onsubmit="return false;">
+    <label for="dato1"><b>ORIGEN</b></label>
+    <select id="dato1">
+      <option value="">--Selecciona una opción--</option>
+      <option id="P1" data-enviar="F">CARILO</option>
+      <option id="P2" data-enviar="G">OSTENDE</option>
+      <option id="P3" data-enviar="H">VALERIA DEL MAR</option>
+      <option id="P4" data-enviar="I">VALERIA CENTRO</option>
+      <option id="P5" data-enviar="J">VALERIA ESPARZA</option>
+      <option id="P6" data-enviar="K">VALERIA SALA</option>
+      <option id="P7" data-enviar="L">MOVI DICK</option>
+      <option id="P8" data-enviar="M">SORIANO</option>
+      <option id="P9" data-enviar="N">LA PLATA Y CENTRAL</option>
+      <option id="P10" data-enviar="O">MAR DE OSTENDE</option>
+      <option id="P11" data-enviar="P">CENTRO</option>
+      <option id="P12" data-enviar="Q">SHAW Y BUNGE</option>
+      <option id="P13" data-enviar="R">DISCO</option>
+      <option id="P14" data-enviar="S">TERMINAL</option>
+      <option id="P15" data-enviar="T">HOSPITAL</option>
+      <option id="P16" data-enviar="U">OASIS</option>
+      <option id="P17" data-enviar="V">GOLF</option>
+      <option id="P18" data-enviar="W">GOLF NORTE</option>
+      <option id="P19" data-enviar="X">SAN JOSE</option>
+      <option id="P20" data-enviar="Y">BUNGE Y PLAYA</option>
+      <option id="P21" data-enviar="Z">SALA OSTENDE</option>
+      <option id="P22" data-enviar="AA">UADE</option>
+      <option id="P23" data-enviar="AB">ESTACIÓN DE TREN</option>
+      <option id="P24" data-enviar="AC">UFO</option>
+      <option id="P25" data-enviar="AD">LA HERRADURA</option>
+      <option id="P26" data-enviar="AE">COSTA ESMERALDA</option>
+      <option id="P27" data-enviar="AF">HOWARD JOHNSON</option>
+      <option id="P28" data-enviar="AG">COTO</option>
+      <option id="P29" data-enviar="AH">PUEBLO LÍMITE</option>
+      </select>
+      
+       <!-- Agrega más opciones de columna según sea necesario -->
+    </select>
+    <label for="dato2"><b>DESTINO</b></label>
+    <select id="dato2">
+      <option value="">--Selecciona una opción--</option>
+      <option id="P1" data-enviar="4">CARILO</option>
+      <option id="P2" data-enviar="5">VALERIA CENTRO</option>
+      <option id="P3" data-enviar="6">VALERIA ESPARZA</option>
+      <option id="P4" data-enviar="7">VALERIA SALA</option>
+      <option id="P5" data-enviar="8">MOVI DICK</option>
+      <option id="P6" data-enviar="9">SORIANO</option>
+      <option id="P7" data-enviar="10">LA PLATA Y CENTRAL</option>
+      <option id="P8" data-enviar="11">MAR DE OSTENDE</option>
+      <option id="P9" data-enviar="12">CENTRO</option>
+      <option id="P10" data-enviar="13">SHAW Y BUNGE</option>
+      <option id="P11" data-enviar="14">DISCO</option>
+      <option id="P12" data-enviar="15">TERMINAL</option>
+      <option id="P13" data-enviar="16">HOSPITAL</option>
+      <option id="P14" data-enviar="17">OASIS</option>
+      <option id="P15" data-enviar="18">GOLF</option>
+      <option id="P16" data-enviar="19">GOLF NORTE</option>
+      <option id="P17" data-enviar="20">SAN JOSE</option>
+      <option id="P18" data-enviar="21">BUNGE Y PLAYA</option>
+      <option id="P19" data-enviar="22">SALA OSTENDE</option>
+      <option id="P20" data-enviar="23">UADE</option>
+      <option id="P21" data-enviar="24">ESTACIÓN DE TREN</option>
+      <option id="P22" data-enviar="25">UFO</option>
+      <option id="P23" data-enviar="26">LA HERRADURA</option>
+      <option id="P24" data-enviar="27">COSTA ESMERALDA</option>
+      <option id="P25" data-enviar="28">HOWARD JOHNSON</option>
+      <option id="P26" data-enviar="29">COTO</option>
+      <option id="P27" data-enviar="30">PUEBLO LÍMITE</option>
+    </select>
+
+      <!-- Agrega más opciones de fila según sea necesario -->
+    </select>
+    <input type="submit" value="Consultar" onclick="submitForm()">
+  </form>
+
+  <div id="resultado-container" class="resultado-estilo"></div>
+ 
+  <br>
+
+  <p style="color:whitesmoke">Por otras consultas 
+  <br>
+    <a href="https://wa.me/5492267666911" target="_blank">
+    <!-- Si estás utilizando Font Awesome: -->
+    <i class="fab fa-whatsapp"></i>
+    <!-- Si no estás utilizando Font Awesome: -->
+    <!-- <img src="ruta_al_icono_whatsapp.png" alt="WhatsApp"> -->
+  </a>
+   </p>
+     
+</body>
+
+</html>
+
+
+
