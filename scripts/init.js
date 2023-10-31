@@ -6,6 +6,6 @@ function initClient() {
     discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
     scope: 'https://www.googleapis.com/auth/spreadsheets',
   }).then(function(submitForm) {
-    // La aplicación está autorizada y lista para usar la API de Google Sheets.
-  });
+     //La aplicación está autorizada y lista para usar la API de Google Sheets.
+});
 }
